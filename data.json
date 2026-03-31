@@ -1,27 +1,13 @@
 {
-    "score": "3.5",
-    "verdict": "Cautela extrema. Riscos geopolíticos e inflação de energia pressionam ativos.",
-    "assets": [
-        { "name": "BTC/USD", "sub": "Bitcoin", "val": "$66.850", "chg": "-4.2%", "up": false },
-        { "name": "ETH/USD", "sub": "Ethereum", "val": "$2.040", "chg": "-3.1%", "up": false },
-        { "name": "GOLD", "sub": "Ouro", "val": "$4.526", "chg": "+0.75%", "up": true },
-        { "name": "OIL (Brent)", "sub": "Petróleo", "val": "$112.78", "chg": "+6.2%", "up": true }
-    ],
-    "predictions": [
-        { "label": "BTC > $80k Março", "pct": 4, "color": "#E24B4A" },
-        { "label": "Cessar-fogo (Irã)", "pct": 22, "color": "#EF9F27" },
-        { "label": "Corte Fed (Abril)", "pct": 20, "color": "#E24B4A" }
-    ],
-    "news": [
-        { "headline": "Irã rejeita plano de paz de 15 pontos dos EUA", "meta": "Reuters · 2h atrás" },
-        { "headline": "Petróleo acumula 60% de alta em Março", "meta": "Bloomberg · 4h atrás" },
-        { "headline": "BTC ETFs registram saídas de $263M", "meta": "News Agent · 6h atrás" }
-    ],
-    "terminal": [
-        "> Sincronização de 18:30 (BRT) concluída.",
-        "> Oráculo: Delta de probabilidade -11% para BTC $70k.",
-        "> OnChain: Detectada movimentação de 12.000 BTC para exchanges.",
-        "> Trader: Suporte de $65.500 sendo testado.",
-        "> Jarvis: Sistema em alerta de risco geopolítico elevado."
-    ]
+  "last_update": "2026-03-31T00:30:00-03:00",
+  "btc_price": 66551,
+  "sentiment_index": 11,
+  "sentiment_label": "Extreme Fear",
+  "assertiveness_score": 72,
+  "polymarket_up_prob": 54,
+  "consenso_score": 5.8,
+  "summary": "BTC respeitou suporte em 5.9k. Viés de queda anterior confirmado. Delta de probabilidade indica otimismo de recuperação técnica (+24%).",
+  "news": "Geopolítica EUA-Irã e outflow de ETFs dominam sentimento de risco.",
+  "supports": ["65895", "64000"],
+  "resistances": ["67900", "70000"]
 }
