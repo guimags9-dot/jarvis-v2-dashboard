@@ -1,6 +1,64 @@
 {
     "score": "88",
     "verdict": "Tendência de Alta Confirmada (Consenso 4h)",
+    "health": [
+        {
+            "name": "Trader",
+            "online": true
+        },
+        {
+            "name": "News",
+            "online": true
+        },
+        {
+            "name": "OnChain",
+            "online": true
+        },
+        {
+            "name": "Negoc.",
+            "online": true
+        },
+        {
+            "name": "Proj.Z",
+            "online": true
+        }
+    ],
+    "heatmap": [
+        [
+            {
+                "val": "BTC",
+                "color": "#16b364",
+                "label": "Alta"
+            },
+            {
+                "val": "ETH",
+                "color": "#16b364",
+                "label": "Alta"
+            },
+            {
+                "val": "SOL",
+                "color": "#e78a00",
+                "label": "Neutro"
+            }
+        ],
+        [
+            {
+                "val": "Macro",
+                "color": "#16b364",
+                "label": "Positivo"
+            },
+            {
+                "val": "DXY",
+                "color": "#e5484d",
+                "label": "Queda"
+            },
+            {
+                "val": "US10Y",
+                "color": "#e78a00",
+                "label": "Neutro"
+            }
+        ]
+    ],
     "assets": [
         {
             "name": "Bitcoin",
@@ -47,7 +105,7 @@
         }
     ],
     "terminal": [
-        "[23:41:03] OnChain: Movimentação massiva detectada.",
-        "[23:41:03] Trader: RSI em zona de neutralidade."
+        "[00:19:55] OnChain: Movimentação massiva detectada.",
+        "[00:19:55] Trader: RSI em zona de neutralidade."
     ]
 }
