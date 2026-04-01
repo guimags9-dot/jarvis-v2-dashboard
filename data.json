@@ -37,21 +37,21 @@
         {
             "name": "Bitcoin",
             "sub": "BTC/USDT",
-            "val": "$68,844",
-            "chg": "2.3%",
+            "val": "$68,778",
+            "chg": "2.1%",
             "up": true
         },
         {
             "name": "Ethereum",
             "sub": "ETH/USDT",
-            "val": "$2,137.68",
-            "chg": "4.2%",
+            "val": "$2,135.84",
+            "chg": "3.9%",
             "up": true
         },
         {
             "name": "Solana",
             "sub": "SOL/USDT",
-            "val": "$84.10",
+            "val": "$84.03",
             "chg": "1.4%",
             "up": true
         }
@@ -79,7 +79,7 @@
         }
     ],
     "terminal": [
-        "[04:45:17] Projeto Z: API Coinglass ativada.",
-        "[04:45:17] Orquestrador: Capturando Tickers e Liquidações."
+        "[04:50:15] Projeto Z: API Coinglass ativada.",
+        "[04:50:15] Orquestrador: Capturando Tickers e Liquidações."
     ]
 }
