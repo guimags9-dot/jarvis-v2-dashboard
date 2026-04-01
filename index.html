@@ -101,11 +101,12 @@
         .status-online { background: var(--green); box-shadow: 0 0 5px var(--green); }
         .status-offline { background: var(--text-3); }
 
-        /* ── Heatmap Placeholder ─────────────────────────────────────── */
-        .heatmap-container { height: 180px; display: flex; flex-direction: column; gap: 4px; }
-        .heatmap-row { display: flex; gap: 4px; flex: 1; }
-        .heatmap-cell { flex: 1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-family: 'DM Mono', monospace; color: white; transition: transform 0.2s; }
-        .heatmap-cell:hover { transform: scale(1.05); z-index: 10; }
+        /* ── Market Stats ───────────────────────────────────────────── */
+        .stats-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-family: 'DM Mono', monospace; }
+        .stats-label { font-size: 10px; color: var(--text-2); }
+        .stats-val { font-size: 11px; font-weight: 500; }
+        .news-counter { display: flex; gap: 4px; margin-top: 10px; }
+        .nc-box { flex: 1; text-align: center; padding: 4px; border-radius: 4px; font-size: 10px; font-weight: 600; }
         @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 600px) { .grid-3 { grid-template-columns: 1fr; } .grid-2-1 { grid-template-columns: 1fr; } }
 
@@ -175,10 +176,10 @@
 
         <div class="card">
             <div class="card-header">
-                <span class="card-title">Mapa de Calor (Sentimento)</span>
+                <span class="card-title">Métricas de Mercado</span>
                 <span class="badge badge-amber">Alpha</span>
             </div>
-            <div class="heatmap-container" id="sentiment-heatmap">
+            <div id="market-stats-container" style="padding: 5px 0;">
                 <!-- Injetado via JS -->
             </div>
         </div>
@@ -260,18 +261,21 @@
             `).join('');
         }
 
-        // Update Heatmap
-        const heatmap = document.getElementById('sentiment-heatmap');
-        if (data.heatmap) {
-            heatmap.innerHTML = data.heatmap.map(row => `
-                <div class="heatmap-row">
-                    ${row.map(cell => `
-                        <div class="heatmap-cell" style="background: ${cell.color}" title="${cell.label}">
-                            ${cell.val}
-                        </div>
-                    `).join('')}
+        // Update Market Stats (Sentimento/Noticias/MarketCap)
+        const statsContainer = document.getElementById('market-stats-container');
+        if (data.market_stats) {
+            const s = data.market_stats;
+            statsContainer.innerHTML = `
+                <div class="stats-item"><span class="stats-label">SENTIMENTO:</span> <span class="stats-val" style="color: ${s.sent_color}">${s.sent_val}</span></div>
+                <div class="stats-item"><span class="stats-label">DOMINÂNCIA BTC:</span> <span class="stats-val">${s.btc_dom}</span></div>
+                <div class="stats-item"><span class="stats-label">MKT CAP (ETH):</span> <span class="stats-val">${s.eth_cap}</span></div>
+                <div class="stats-item"><span class="stats-label">MKT CAP (OTHERS):</span> <span class="stats-val">${s.others_cap}</span></div>
+                <div class="news-counter">
+                    <div class="nc-box" style="background: var(--green-bg); color: var(--green-txt)">${s.news_pos} Pos</div>
+                    <div class="nc-box" style="background: var(--bg-surface); color: var(--text-2)">${s.news_neu} Neu</div>
+                    <div class="nc-box" style="background: var(--red-bg); color: var(--red-txt)">${s.news_neg} Neg</div>
                 </div>
-            `).join('');
+            `;
         }
 
         // Update Consensus
