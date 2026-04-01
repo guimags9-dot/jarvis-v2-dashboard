@@ -88,6 +88,11 @@
         .grid-custom { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 16px; margin-bottom: 16px; }
         .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px; }
 
+        /* Mobile Adjustment */
+        @media (max-width: 900px) { 
+            .grid-3, .grid-custom, .grid-2-1 { grid-template-columns: 1fr; } 
+        }
+
         /* ── Health Status ───────────────────────────────────────────── */
         .health-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 10px; padding: 10px 0; }
         .health-item { text-align: center; padding: 8px; border-radius: var(--radius-sm); border: 0.5px solid var(--border); background: var(--bg-surface); }
