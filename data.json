@@ -23,42 +23,16 @@
             "online": true
         }
     ],
-    "heatmap": [
-        [
-            {
-                "val": "BTC",
-                "color": "#16b364",
-                "label": "Alta"
-            },
-            {
-                "val": "ETH",
-                "color": "#16b364",
-                "label": "Alta"
-            },
-            {
-                "val": "SOL",
-                "color": "#e78a00",
-                "label": "Neutro"
-            }
-        ],
-        [
-            {
-                "val": "Macro",
-                "color": "#16b364",
-                "label": "Positivo"
-            },
-            {
-                "val": "DXY",
-                "color": "#e5484d",
-                "label": "Queda"
-            },
-            {
-                "val": "US10Y",
-                "color": "#e78a00",
-                "label": "Neutro"
-            }
-        ]
-    ],
+    "market_stats": {
+        "sent_val": "Ganância (62)",
+        "sent_color": "#e78a00",
+        "btc_dom": "52.4%",
+        "eth_cap": "$410B",
+        "others_cap": "$680B",
+        "news_pos": 12,
+        "news_neu": 5,
+        "news_neg": 2
+    },
     "assets": [
         {
             "name": "Bitcoin",
@@ -105,7 +79,7 @@
         }
     ],
     "terminal": [
-        "[00:19:55] OnChain: Movimentação massiva detectada.",
-        "[00:19:55] Trader: RSI em zona de neutralidade."
+        "[00:40:44] OnChain: Movimentação massiva detectada.",
+        "[00:40:44] Trader: RSI em zona de neutralidade."
     ]
 }
