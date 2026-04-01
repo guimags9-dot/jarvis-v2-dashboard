@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saúde do Sistema - Jarvis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg-page: #F4F3EF;
+            --bg-card: #FFFFFF;
+            --bg-surface: #F0EFE9;
+            --text-1: #1A1916;
+            --text-2: #6B6A65;
+            --text-3: #A09F9B;
+            --green: #1D9E75;
+            --border: rgba(0,0,0,0.08);
+            --radius-md: 12px;
+            --radius-sm: 8px;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-page: #131312;
+                --bg-card: #1E1D1B;
+                --bg-surface: #252420;
+                --text-1: #F0EFE9;
+                --text-2: #8E8D88;
+                --text-3: #5A5955;
+                --border: rgba(255,255,255,0.07);
+            }
+        }
+        body { background: var(--bg-page); color: var(--text-1); font-family: 'Sora', sans-serif; padding: 20px; }
+        .wrap { max-width: 600px; margin: 0 auto; }
+        .card { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        .card-title { font-size: 10px; font-weight: 500; color: var(--text-2); text-transform: uppercase; letter-spacing: .09em; margin-bottom: 15px; display: block; }
+        .health-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; }
+        .health-item { text-align: center; padding: 12px; border-radius: var(--radius-sm); border: 0.5px solid var(--border); background: var(--bg-surface); }
+        .health-name { font-size: 10px; font-weight: 600; text-transform: uppercase; color: var(--text-2); display: block; margin-bottom: 6px; }
+        .status-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .status-online { background: var(--green); box-shadow: 0 0 8px var(--green); }
+        .status-offline { background: var(--text-3); }
+        .back-link { display: inline-block; margin-top: 20px; font-size: 12px; color: var(--text-2); text-decoration: none; font-family: 'DM Mono', monospace; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="card">
+            <span class="card-title">Saúde do Sistema (Agentes)</span>
+            <div class="health-grid" id="agent-health">
+                <!-- Injetado via JS -->
+            </div>
+        </div>
+        <a href="index.html" class="back-link">← Voltar ao Dashboard</a>
+    </div>
+
+    <script>
+        async function loadHealth() {
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+                const healthList = document.getElementById('agent-health');
+                if (data.health) {
+                    healthList.innerHTML = data.health.map(h => `
+                        <div class="health-item">
+                            <span class="health-name">${h.name}</span>
+                            <span class="status-dot ${h.online ? 'status-online' : 'status-offline'}"></span>
+                        </div>
+                    `).join('');
+                }
+            } catch (e) { console.log("Erro ao carregar saúde."); }
+        }
+        setInterval(loadHealth, 30000);
+        loadHealth();
+    </script>
+</body>
+</html>

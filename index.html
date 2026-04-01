@@ -85,7 +85,7 @@
 
         /* ── Grid system ─────────────────────────────────────────────── */
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
-        .grid-custom { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 16px; margin-bottom: 16px; }
+        .grid-custom { display: grid; grid-template-columns: 1fr 1.5fr; gap: 16px; margin-bottom: 16px; }
         .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px; }
 
         /* Mobile Adjustment */
@@ -166,16 +166,6 @@
     <div class="grid-custom">
         <div class="card">
             <div class="card-header">
-                <span class="card-title">Saúde dos Agentes</span>
-                <span class="badge badge-blue">Sync</span>
-            </div>
-            <div class="health-grid" id="agent-health">
-                <!-- Injetado via JS -->
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
                 <span class="card-title">Métricas de Mercado</span>
                 <span class="badge badge-amber">Alpha</span>
             </div>
@@ -196,6 +186,16 @@
             <div style="margin-top: 20px; font-size: 11px; color: var(--text-2); text-align: center; font-style: italic;" id="consensus-text">
                 Sincronizando dados dos agentes...
             </div>
+        </div>
+    </div>
+    
+    <div class="card" style="margin-top: 16px;">
+        <div class="card-header">
+            <span class="card-title">Status do Ecossistema</span>
+            <span class="badge badge-blue">Infra</span>
+        </div>
+        <div style="text-align: center; padding: 10px;">
+            <a href="health.html" style="font-size: 12px; color: var(--blue); text-decoration: none; font-weight: 500; font-family: 'DM Mono', monospace;">Verificar integridade dos agentes →</a>
         </div>
     </div>
 
