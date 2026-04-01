@@ -85,7 +85,22 @@
 
         /* ── Grid system ─────────────────────────────────────────────── */
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+        .grid-custom { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 16px; margin-bottom: 16px; }
         .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+        /* ── Health Status ───────────────────────────────────────────── */
+        .health-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 10px; padding: 10px 0; }
+        .health-item { text-align: center; padding: 8px; border-radius: var(--radius-sm); border: 0.5px solid var(--border); background: var(--bg-surface); }
+        .health-name { font-size: 9px; font-weight: 600; text-transform: uppercase; color: var(--text-2); display: block; margin-bottom: 4px; }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+        .status-online { background: var(--green); box-shadow: 0 0 5px var(--green); }
+        .status-offline { background: var(--text-3); }
+
+        /* ── Heatmap Placeholder ─────────────────────────────────────── */
+        .heatmap-container { height: 180px; display: flex; flex-direction: column; gap: 4px; }
+        .heatmap-row { display: flex; gap: 4px; flex: 1; }
+        .heatmap-cell { flex: 1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-family: 'DM Mono', monospace; color: white; transition: transform 0.2s; }
+        .heatmap-cell:hover { transform: scale(1.05); z-index: 10; }
         @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 600px) { .grid-3 { grid-template-columns: 1fr; } .grid-2-1 { grid-template-columns: 1fr; } }
 
@@ -142,7 +157,27 @@
         <div class="status-pill"><span class="pulse"></span> Sistema Autônomo Ativo</div>
     </div>
 
-    <div class="grid-3">
+    <div class="grid-custom">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Saúde dos Agentes</span>
+                <span class="badge badge-blue">Sync</span>
+            </div>
+            <div class="health-grid" id="agent-health">
+                <!-- Injetado via JS -->
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Mapa de Calor (Sentimento)</span>
+                <span class="badge badge-amber">Alpha</span>
+            </div>
+            <div class="heatmap-container" id="sentiment-heatmap">
+                <!-- Injetado via JS -->
+            </div>
+        </div>
+
         <div class="card">
             <div class="card-header">
                 <span class="card-title">Nota de Consenso</span>
@@ -156,6 +191,9 @@
                 Sincronizando dados dos agentes...
             </div>
         </div>
+    </div>
+
+    <div class="grid-3">
 
         <div class="card">
             <div class="card-header">
@@ -206,6 +244,31 @@
     }
 
     function updateUI(data) {
+        // Update Health
+        const healthList = document.getElementById('agent-health');
+        if (data.health) {
+            healthList.innerHTML = data.health.map(h => `
+                <div class="health-item">
+                    <span class="health-name">${h.name}</span>
+                    <span class="status-dot ${h.online ? 'status-online' : 'status-offline'}"></span>
+                </div>
+            `).join('');
+        }
+
+        // Update Heatmap
+        const heatmap = document.getElementById('sentiment-heatmap');
+        if (data.heatmap) {
+            heatmap.innerHTML = data.heatmap.map(row => `
+                <div class="heatmap-row">
+                    ${row.map(cell => `
+                        <div class="heatmap-cell" style="background: ${cell.color}" title="${cell.label}">
+                            ${cell.val}
+                        </div>
+                    `).join('')}
+                </div>
+            `).join('');
+        }
+
         // Update Consensus
         document.getElementById('consensus-score').textContent = data.score || "--";
         document.getElementById('consensus-text').textContent = data.verdict || "Aguardando veredito...";
