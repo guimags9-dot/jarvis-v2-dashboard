@@ -24,8 +24,8 @@
         }
     ],
     "market_stats": {
-        "sent_val": "Coinglass Data",
-        "sent_color": "#3b82f6",
+        "sent_val": "Extreme Fear (8)",
+        "sent_color": "#e5484d",
         "btc_dom": "52.8%",
         "eth_cap": "$410B",
         "others_cap": "$680B",
@@ -37,22 +37,22 @@
         {
             "name": "Bitcoin",
             "sub": "BTC/USDT",
-            "val": "$68,245",
-            "chg": "1.0%",
+            "val": "$68,269",
+            "chg": "1.2%",
             "up": true
         },
         {
             "name": "Ethereum",
             "sub": "ETH/USDT",
-            "val": "$2,111.10",
-            "chg": "2.4%",
+            "val": "$2,110.33",
+            "chg": "2.5%",
             "up": true
         },
         {
             "name": "Solana",
             "sub": "SOL/USDT",
-            "val": "$83.57",
-            "chg": "0.2%",
+            "val": "$83.59",
+            "chg": "0.3%",
             "up": true
         }
     ],
@@ -79,7 +79,7 @@
         }
     ],
     "terminal": [
-        "[01:52:51] Projeto Z: API Coinglass ativada.",
-        "[01:52:51] Orquestrador: Capturando Tickers e Liquidações."
+        "[01:57:40] Projeto Z: API Coinglass ativada.",
+        "[01:57:40] Orquestrador: Capturando Tickers e Liquidações."
     ]
 }
