@@ -1,6 +1,6 @@
 {
     "score": "74",
-    "verdict": "Mercado em Acumulação Técnica (Sinais Reais)",
+    "verdict": "Inteligência Coinglass Integrada (Real-Time)",
     "health": [
         {
             "name": "Trader",
@@ -24,10 +24,10 @@
         }
     ],
     "market_stats": {
-        "sent_val": "Ganância (62)",
-        "sent_color": "#e78a00",
+        "sent_val": "Coinglass Data",
+        "sent_color": "#3b82f6",
         "btc_dom": "52.8%",
-        "eth_cap": "$253B",
+        "eth_cap": "$410B",
         "others_cap": "$680B",
         "news_pos": 8,
         "news_neu": 12,
@@ -37,49 +37,49 @@
         {
             "name": "Bitcoin",
             "sub": "BTC/USDT",
-            "val": "$68,073",
-            "chg": "0.6%",
+            "val": "$68,052",
+            "chg": "0.8%",
             "up": true
         },
         {
             "name": "Ethereum",
             "sub": "ETH/USDT",
-            "val": "$2,100.39",
-            "chg": "1.6%",
+            "val": "$2,100.41",
+            "chg": "1.8%",
             "up": true
         },
         {
             "name": "Solana",
             "sub": "SOL/USDT",
-            "val": "$83.26",
-            "chg": "-0.1%",
+            "val": "$83.38",
+            "chg": "-0.2%",
             "up": false
         }
     ],
     "predictions": [
         {
-            "label": "BTC > 100k (Julho)",
-            "pct": 38,
-            "color": "#e78a00"
+            "label": "Liq. 24h",
+            "pct": 100,
+            "color": "#e5484d"
         },
         {
-            "label": "Fed Cut (Maio)",
-            "pct": 72,
+            "label": "Funding Rate",
+            "pct": 15,
             "color": "#16b364"
         }
     ],
     "news": [
         {
-            "headline": "MicroStrategy compra mais 1.031 BTC",
-            "meta": "OnChain · 24h atrás"
+            "headline": "Liquidações totais (24h): $0",
+            "meta": "Coinglass · Real-time"
         },
         {
-            "headline": "Saída de 1.2M ETH das corretoras",
-            "meta": "Baleia · 48h atrás"
+            "headline": "OI de Bitcoin em estabilidade institucional",
+            "meta": "Analítico · 1h atrás"
         }
     ],
     "terminal": [
-        "[00:53:59] Projeto Z: Conexão real-time estabelecida.",
-        "[00:53:59] Orquestrador: Sincronizando via CoinGecko API."
+        "[01:12:13] Projeto Z: API Coinglass ativada.",
+        "[01:12:13] Orquestrador: Capturando Tickers e Liquidações."
     ]
 }
